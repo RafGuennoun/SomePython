@@ -3,6 +3,7 @@
 
 import time
 import pyautogui
+import tkinter as tk
 
 # The function that takes screenshots
 def screenshot():
@@ -17,7 +18,7 @@ def screenshot():
     name = '{}/{}.png'.format(path, name)
 
     # Wait 5 seconds
-    time.sleep(5)
+    # time.sleep(5)
 
     # Use the pyautogui function screenshot()
     img = pyautogui.screenshot(name)
@@ -25,4 +26,36 @@ def screenshot():
     # Show the screenshot
     img.show()
 
-screenshot()
+# screenshot()
+
+root = tk.Tk()
+frame = tk.Frame(root)
+
+w = tk.Label(root, text="Hello !")
+w.pack()
+
+frame.pack()
+
+
+
+# Create button
+button = tk.Button(
+    frame,
+    text = "Take screenshot",
+    command = screenshot
+)
+
+# Place the Take Screenshot button
+button.pack(side = tk.LEFT)
+
+# Close button
+close = tk.Button(
+    frame,
+    text = "Close",
+    command = quit
+)
+
+# Place the Close button
+close.pack(side = tk.LEFT)
+
+root.mainloop()
